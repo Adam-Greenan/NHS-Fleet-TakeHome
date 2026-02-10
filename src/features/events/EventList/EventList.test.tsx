@@ -19,9 +19,7 @@ describe("EventList", () => {
     expect(screen.getByText(/London, UK/)).toBeInTheDocument();
     expect(screen.getByText(/2026-03-02/)).toBeInTheDocument();
 
-    expect(screen.getByText("Frontend Futures'
-        
-        ")).toBeInTheDocument();
+    expect(screen.getByText("Frontend Futures")).toBeInTheDocument();
     expect(screen.getByText(/Manchester, UK/)).toBeInTheDocument();
     expect(screen.getByText(/2026-02-18/)).toBeInTheDocument();
   });
