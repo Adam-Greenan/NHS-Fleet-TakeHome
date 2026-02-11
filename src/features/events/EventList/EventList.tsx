@@ -1,6 +1,5 @@
 import * as React from "react";
-import "./EventList.css";
-import type { Event } from "../../../types/types";
+import type { Event } from "@features/events/types";
 
 export interface IEventListProps {
   events: Event[];
@@ -8,8 +7,11 @@ export interface IEventListProps {
 export const EventList: React.FunctionComponent<IEventListProps> = ({
   events,
 }) => {
+  if (!events.length) {
+    return <p role="status">There are no events found!</p>;
+  }
   return (
-    <ul className="space-y-2">
+    <ul aria-label="event list" className="space-y-2">
       {events.map((e) => (
         <li key={e.id} className="border rounded p-3">
           <div className="font-medium">{e.name}</div>

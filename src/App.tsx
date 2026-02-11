@@ -1,26 +1,12 @@
-import { useState } from "react";
-import { EventList } from "./features/events/EventList";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { EventsRoute } from "./app/routes/EventsRoute";
 
 function App() {
   return (
-    <>
-      <EventList
-        events={[
-          {
-            id: 2,
-            name: "Frontend Futures",
-            date: "2026-02-18",
-            location: "Manchester, UK",
-          },
-          {
-            id: 3,
-            name: "TypeScript Live",
-            date: "2026-02-28",
-            location: "Online",
-          },
-        ]}
-      />
-    </>
+    <Routes>
+      <Route path="/" element={<Navigate to="/events" replace />} />
+      <Route path="/events" index element={<EventsRoute />} />
+    </Routes>
   );
 }
 

@@ -13,11 +13,21 @@ const dirname =
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      "@domain": path.resolve(dirname, "src/domain"),
+      "@helpers": path.resolve(dirname, "src/helpers"),
+      "@features": path.resolve(dirname, "src/features"),
+      "@mocks": path.resolve(dirname, "src/mocks"),
+      "@hooks": path.resolve(dirname, "src/hooks"),
+    },
+  },
   test: {
     globals: true,
     setupFiles: "./src/tests/setup.ts",
     projects: [
       {
+        extends: true,
         test: {
           name: "unit",
           environment: "jsdom",
